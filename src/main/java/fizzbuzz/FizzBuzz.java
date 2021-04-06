@@ -1,7 +1,8 @@
 package fizzbuzz;
 
-public class FizzBuzz {
+import static util.IsMultipleOf.*;
 
+public class FizzBuzz {
   private int initialNumber;
   private int finalNumber;
 
@@ -30,20 +31,20 @@ public class FizzBuzz {
   }
 
   public String fizzbuzz(int number){
-    if(number == 0){
+    if (number != 0) {
+      if (divisible(number, 3) && divisible(number, 5)) {
+        return "fizzbuzz";
+      }
+      if (divisible(number, 3)) {
+        return "fizz";
+      }
+      if (divisible(number, 5)) {
+        return "buzz";
+      }
+      return number + "";
+    } else {
       return "0";
     }
-    if((number % 3 == 0) && (number % 5 == 0)){
-      return "fizzbuzz";
-    }
-    if(number % 3 == 0){
-      return "fizz";
-    }
-    if(number % 5 == 0){
-      return "buzz";
-    }
-
-    return number+"";
   }
 
   public void printFizzBuzzResult(){
